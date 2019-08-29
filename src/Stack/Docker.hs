@@ -242,7 +242,6 @@ runContainerAndExit = do
      containerID <- withWorkingDir (toFilePath projectRoot) $ trim . decodeUtf8 <$> readDockerProcess
        (concat
          [["create"
-          ,"--net=host"
           ,"-e",inContainerEnvVar ++ "=1"
           ,"-e",stackRootEnvVar ++ "=" ++ toFilePathNoTrailingSep stackRoot
           ,"-e",platformVariantEnvVar ++ "=dk" ++ platformVariant
